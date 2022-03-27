@@ -7,7 +7,6 @@ const App = () => {
       <Navbar />
       <MyRoutes />
       <Footer />
-    </div>
   );
 };
 
