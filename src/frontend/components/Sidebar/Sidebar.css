@@ -39,6 +39,7 @@
   gap: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 .sidebar-items:hover {
   background-color: var(--color-success-muted);
