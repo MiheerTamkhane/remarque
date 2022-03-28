@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
+import { loginHandler } from "../../services/servicesExport";
 const LandingPage = () => {
   return (
     <main className="landing-container">
@@ -14,7 +15,7 @@ const LandingPage = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
           dolorum dignissimos tempore..
         </span>
-        <Link to="/notespage" className="ct-btn ct-green-bd landing-cta">
+        <Link to="/signup" className="ct-btn ct-green-bd landing-cta">
           <span>Join Now</span>
           <span className="material-icons-outlined">chevron_right</span>
         </Link>
