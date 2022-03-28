@@ -1,0 +1,8 @@
+.notes-page {
+  display: flex;
+}
+.notes-container {
+  height: 80vh;
+  flex-basis: 80%;
+  margin-left: 20%;
+}
