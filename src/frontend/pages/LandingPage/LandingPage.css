@@ -26,11 +26,17 @@
 }
 
 .landing-cta.ct-btn.ct-green-bd {
-  padding: 0.5rem 1rem;
+  max-width: fit-content;
+  padding: 0.3rem 1rem;
   color: #fff;
   margin-top: 2rem;
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-success);
+  text-decoration: none;
+  font-family: "Baloo 2", cursive;
 }
 .landing-link {
   font-size: 1rem;

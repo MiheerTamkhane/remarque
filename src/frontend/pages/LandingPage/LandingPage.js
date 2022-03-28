@@ -14,10 +14,10 @@ const LandingPage = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
           dolorum dignissimos tempore..
         </span>
-        <button className="ct-btn ct-green-bd landing-cta">
-          Join Now
+        <Link to="/" className="ct-btn ct-green-bd landing-cta">
+          <span>Join Now</span>
           <span className="material-icons-outlined">chevron_right</span>
-        </button>
+        </Link>
         <Link to="/" className="landing-link">
           Already have an account?
         </Link>
