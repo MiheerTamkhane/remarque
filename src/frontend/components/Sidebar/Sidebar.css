@@ -1,17 +1,4 @@
-.sidebar-container-hide {
-  position: absolute;
-  left: -17%;
-  width: 20%;
-  height: 90vh;
-  transition: all 0.3s ease-in;
-  display: flex;
-  justify-content: center;
-  border-top-right-radius: 1rem;
-  border-end-end-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-.sidebar-container-show {
+.sidebar-container {
   position: absolute;
   left: 0%;
   width: 20%;
@@ -23,6 +10,10 @@
   border-end-end-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.sidebar-container.hide {
+  left: -17%;
+  width: 20%;
 }
 .items-container {
   flex-basis: 100%;

@@ -4,11 +4,7 @@ import "./Sidebar.css";
 const Sidebar = () => {
   const [isSidebar, setIsSidebar] = useState(false);
   return (
-    <div
-      className={
-        isSidebar ? "sidebar-container-show" : "sidebar-container-hide"
-      }
-    >
+    <div className={isSidebar ? "sidebar-container" : "sidebar-container hide"}>
       <div className="items-container">
         <div className="sidebar-arrow">
           <span

@@ -2,7 +2,7 @@
   display: flex;
 }
 .notes-container {
-  height: 80vh;
+  height: 90vh;
   flex-basis: 80%;
   margin-left: 20%;
 }
