@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./LandingPage.css";
 const LandingPage = () => {
   return (
@@ -18,9 +18,9 @@ const LandingPage = () => {
           Join Now
           <span className="material-icons-outlined">chevron_right</span>
         </button>
-        <NavLink to="/" className="landing-link">
+        <Link to="/" className="landing-link">
           Already have an account?
-        </NavLink>
+        </Link>
       </section>
     </main>
   );
