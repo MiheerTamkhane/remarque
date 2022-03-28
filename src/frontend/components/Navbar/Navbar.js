@@ -21,11 +21,11 @@ const Navbar = () => {
         </div>
       </div>
       <div className={isUser ? "dialog-box-show" : "dialog-box-hide"}>
-        <NavLink to="/" className="dialog-one dialog ct-btn ct-green-bd">
+        <NavLink to="/login" className="dialog ct-btn ct-green-bd">
           Login
         </NavLink>
-        <NavLink to="/" className="dialog-two dialog ct-btn ct-green-bd">
-          Logout
+        <NavLink to="/signup" className="dialog ct-btn ct-green-bd">
+          Signup
         </NavLink>
       </div>
     </nav>
