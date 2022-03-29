@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
-import { loginHandler } from "../../services/servicesExport";
+import { useAuth } from "../../contexts/contextExport";
 const LandingPage = () => {
+  const { auth } = useAuth();
   return (
     <main className="landing-container">
       <section className="landing-img">
@@ -15,10 +16,20 @@ const LandingPage = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
           dolorum dignissimos tempore..
         </span>
-        <Link to="/signup" className="ct-btn ct-green-bd landing-cta">
-          <span>Join Now</span>
-          <span className="material-icons-outlined">chevron_right</span>
-        </Link>
+        {auth.status ? (
+          <Link
+            to="/notespage"
+            className="ct-btn ct-green-bd landing-cta-to-notes"
+          >
+            <span>Go to Notes</span>
+            <span className="material-icons-outlined">chevron_right</span>
+          </Link>
+        ) : (
+          <Link to="/signup" className="ct-btn ct-green-bd landing-cta">
+            <span>Join Now</span>
+            <span className="material-icons-outlined">chevron_right</span>
+          </Link>
+        )}
         <Link to="/login" className="landing-link">
           Already have an account?
         </Link>

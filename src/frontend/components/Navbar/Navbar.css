@@ -27,18 +27,10 @@
   color: var(--color-gray-600);
   cursor: pointer;
 }
-.dialog-box-hide {
-  display: none;
-}
-.dialog-box-show {
-  position: absolute;
-  right: 2.4rem;
-  top: 3.5rem;
-  height: 80px;
-  width: 100px;
+
+.dialog-box {
+  text-decoration: none;
   display: flex;
-  flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 7px;
 }
 .dialog {
@@ -48,6 +40,17 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background-color: white;
-  color: white;
+}
+.user-logged {
+  display: flex;
+  gap: 1rem;
+  font-family: "Baloo 2", cursive;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.dialog.ct-btn.ct-green-bd.active {
+  color: var(--color-success);
+  font-weight: bold;
+  background-color: var(--color-gray-100);
 }

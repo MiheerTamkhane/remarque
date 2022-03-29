@@ -8,7 +8,6 @@ const AuthProvider = ({ children }) => {
     status: localStorage.getItem("authToken") ? true : false,
     authToken: localStorage.getItem("authToken"),
   });
-  console.log(auth.status);
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
       {children}

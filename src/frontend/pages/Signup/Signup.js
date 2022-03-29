@@ -16,17 +16,23 @@ const Signup = () => {
     const data = await signupHandler(userSignup);
     setAuth((auth) => ({
       ...auth,
-      user: data.foundUser.firstName,
+      user: data.createdUser.firstName,
       status: true,
       authToken: data.encodedToken,
     }));
-    localStorage.setItem("user", data.foundUser.firstName);
+    localStorage.setItem("user", data.createdUser.firstName);
     localStorage.setItem("authToken", data.encodedToken);
     navigate("/notespage");
   };
   return (
     <main className="form-container">
-      <form className="ct-form" onSubmit={() => handleSignup(userSignup)}>
+      <form
+        className="ct-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSignup(userSignup);
+        }}
+      >
         <h2>Sign up</h2>
         <div className="ct-input-div">
           <input
@@ -35,7 +41,7 @@ const Signup = () => {
             placeholder="First Name..."
             required
             onChange={(e) =>
-              setUserSignup({ ...userSignup, firstName: e.target.value })
+              setUserSignup((user) => ({ ...user, firstName: e.target.value }))
             }
           />
         </div>
@@ -46,7 +52,7 @@ const Signup = () => {
             placeholder="Last Name..."
             required
             onChange={(e) =>
-              setUserSignup({ ...userSignup, lastName: e.target.value })
+              setUserSignup((user) => ({ ...user, lastName: e.target.value }))
             }
           />
         </div>
@@ -57,7 +63,7 @@ const Signup = () => {
             placeholder="Email..."
             required
             onChange={(e) =>
-              setUserSignup({ ...userSignup, email: e.target.value })
+              setUserSignup((user) => ({ ...user, email: e.target.value }))
             }
           />
         </div>
@@ -68,7 +74,7 @@ const Signup = () => {
             placeholder="Password..."
             required
             onChange={(e) =>
-              setUserSignup({ ...userSignup, password: e.target.value })
+              setUserSignup((user) => ({ ...user, password: e.target.value }))
             }
           />
         </div>
