@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../contexts/contextExport";
 const Navbar = () => {
-  const [isUser, setIsUser] = useState(false);
+  const { auth, setAuth } = useAuth();
+  const logoutHandler = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("authToken");
+    setAuth((auth) => ({
+      ...auth,
+      user: "",
+      status: false,
+      authToken: null,
+    }));
+  };
   return (
     <nav className="nav-bar">
       <NavLink to="/" className="ct-nav-logo brand-div">
@@ -12,21 +23,42 @@ const Navbar = () => {
 
       <div className="ct-right-nav">
         <div className="ct-nav-user">
-          <span
-            className="material-icons-outlined nav-user"
-            onClick={() => setIsUser(!isUser)}
-          >
-            account_circle
-          </span>
+          {auth.status ? (
+            <div className="user-logged">
+              <h3>Hi, {auth.user}</h3>
+              <NavLink
+                to="/"
+                className="dialog ct-btn ct-green-bd active"
+                onClick={logoutHandler}
+              >
+                <span className="material-icons">logout</span>
+              </NavLink>
+            </div>
+          ) : (
+            <div className="dialog-box">
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive
+                    ? "dialog ct-btn ct-green-bd active"
+                    : "dialog ct-btn ct-green-bd"
+                }
+              >
+                <span className="material-icons">login</span>
+              </NavLink>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) =>
+                  isActive
+                    ? "dialog ct-btn ct-green-bd active"
+                    : "dialog ct-btn ct-green-bd"
+                }
+              >
+                <span className="material-icons-outlined">person_add</span>
+              </NavLink>
+            </div>
+          )}
         </div>
-      </div>
-      <div className={isUser ? "dialog-box-show" : "dialog-box-hide"}>
-        <NavLink to="/login" className="dialog ct-btn ct-green-bd">
-          Login
-        </NavLink>
-        <NavLink to="/signup" className="dialog ct-btn ct-green-bd">
-          Signup
-        </NavLink>
       </div>
     </nav>
   );

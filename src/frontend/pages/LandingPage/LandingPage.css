@@ -48,3 +48,17 @@
 .landing-link:hover {
   color: var(--color-gray-900);
 }
+.landing-cta-to-notes.ct-btn.ct-green-bd {
+  max-width: fit-content;
+  font-weight: bold;
+  padding: 0.3rem 1rem;
+  color: var(--color-success);
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-success-muted);
+  text-decoration: none;
+  font-family: "Baloo 2", cursive;
+}
