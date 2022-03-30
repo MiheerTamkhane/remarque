@@ -13,7 +13,7 @@
 }
 
 body.light-mode {
-  --color-body-bg: hsla(160, 100%, 40%, 0.102);
+  --color-body-bg: hsl(220, 23%, 95%);
   --color-text: hsl(145, 12%, 40%);
 }
 body.dark-mode {

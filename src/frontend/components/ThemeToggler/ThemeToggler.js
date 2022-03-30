@@ -11,9 +11,9 @@ const ThemeToggler = () => {
       }
     >
       {theme === "light" ? (
-        <span className="material-icons ">dark_mode</span>
+        <span className="material-icons dark-icon">dark_mode</span>
       ) : (
-        <span className="material-icons ">wb_sunny</span>
+        <span className="material-icons light-icon">wb_sunny</span>
       )}
     </div>
   );
