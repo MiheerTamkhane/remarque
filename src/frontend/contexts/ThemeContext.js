@@ -1,12 +1,12 @@
-import { createContext, useContext, useState, useLayoutEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("THEME"));
   console.log(theme);
-  useLayoutEffect(() => {
-    // localStorage.setItem(KAFKA_THEME, theme);
+  useEffect(() => {
+    localStorage.setItem("THEME", theme);
     if (theme === "light") {
       document.body.classList.remove("dark-mode");
       document.body.classList.add("light-mode");

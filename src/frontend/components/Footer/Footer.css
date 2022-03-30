@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  color: var(--color-success);
+  color: var(--color-primary);
 }
 .footer-links img {
   width: 26px;

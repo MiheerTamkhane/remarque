@@ -5,7 +5,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   min-width: 300px;
-  color: var(--color-gray-900);
+  color: var(--color-text);
 }
 .landing-content {
   font-size: 1.2rem;
@@ -21,20 +21,20 @@
 .landing-brand-name {
   font-size: 2.8rem;
   letter-spacing: 0.1em;
-  color: var(--color-success);
+  color: var(--color-primary);
   font-family: "Baloo 2", cursive;
 }
 
 .landing-cta.ct-btn.ct-green-bd {
   max-width: fit-content;
   padding: 0.3rem 1rem;
-  color: #fff;
+  color: var(--color-gray-100);
   margin-top: 2rem;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-success);
+  background-color: var(--color-primary);
   text-decoration: none;
   font-family: "Baloo 2", cursive;
 }
@@ -46,13 +46,13 @@
   transition: all 250ms ease;
 }
 .landing-link:hover {
-  color: var(--color-gray-900);
+  color: var(--color-primary);
 }
 .landing-cta-to-notes.ct-btn.ct-green-bd {
   max-width: fit-content;
   font-weight: bold;
   padding: 0.3rem 1rem;
-  color: var(--color-success);
+  color: var(--color-primary);
   margin-top: 2rem;
   font-size: 1.2rem;
   display: flex;

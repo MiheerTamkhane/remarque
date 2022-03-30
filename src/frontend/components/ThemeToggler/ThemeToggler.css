@@ -4,4 +4,5 @@
   justify-content: center;
   margin: 0rem 1rem;
   cursor: pointer;
+  color: var(--color-gray-600);
 }

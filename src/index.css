@@ -5,38 +5,20 @@
   box-sizing: border-box;
 }
 :root {
-  --color-dark: rgb(10, 16, 10);
-  --color-light: hsl(0, 0%, 100%);
-  --color-blurred-background: hsla(0, 0%, 100%, 0.85);
   --color-primary: hsl(160, 100%, 40%);
+  --color-nav-bg: hsl(160, 66%, 85%);
   --color-primary-muted: hsl(160, 66%, 85%);
-  --color-secondary: hsl(333, 100%, 45%);
-  --color-tertiary: hsl(255, 85%, 30%);
-  --color-decorative: hsl(200, 75%, 65%);
-  --color-muted: hsl(210, 55%, 92%);
-  --color-muted-background: hsla(210, 55%, 92%, 0.85);
-  --color-info: hsl(245, 100%, 60%);
-  --color-success: hsl(160, 100%, 40%);
-  --color-success-muted: hsl(160, 66%, 85%);
-  --color-success-background: hsla(160, 100%, 40%, 0.1);
-  --color-error: hsl(340, 95%, 50%);
-  --color-error-background: hsla(340, 95%, 43%, 0.1);
-  --color-alert: hsl(37, 100%, 50%);
-  --color-alert-background: hsla(52, 100%, 50%, 0.25);
-  --color-venn-0: hsl(190, 100%, 65%);
-  --color-venn-1: hsl(340, 100%, 65%);
-  --color-gray-100: hsl(220, 23%, 95%);
-  --color-gray-200: hsl(225, 16%, 90%);
-  --color-gray-300: hsl(225, 8%, 80%);
-  --color-gray-400: hsl(225, 8%, 70%);
-  --color-gray-500: hsl(225, 7%, 60%);
   --color-gray-600: hsl(225, 15%, 50%);
-  --color-gray-700: hsl(225, 12%, 40%);
-  --color-gray-900: hsl(225, 25%, 20%);
-  --color-gray-1000: hsl(225, 15%, 15%);
-  --color-subtle-background: hsl(225, 25%, 95%);
-  --color-subtle-floating: hsl(0, 0%, 100%);
-  --color-homepage-light: hsl(204, 67%, 85%);
+  --color-gray-100: hsl(220, 23%, 95%);
+}
+
+body.light-mode {
+  --color-body-bg: hsla(160, 100%, 40%, 0.102);
+  --color-text: hsl(145, 12%, 40%);
+}
+body.dark-mode {
+  --color-body-bg: hsl(225, 15%, 15%);
+  --color-text: hsl(140, 23%, 95%);
 }
 
 body {
@@ -46,15 +28,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: 250ms ease-in;
+  background-color: var(--color-body-bg);
+  color: var(--color-text);
 }
-.dark-mode {
-  background-color: var(--color-gray-1000);
-  color: var(--color-light);
-}
-.light-mode {
-  background-color: var(--color-gray-100);
-  color: var(--color-gray-1000);
-}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
