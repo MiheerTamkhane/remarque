@@ -10,11 +10,11 @@
   color: var(--color-text);
 }
 .dark-icon {
-  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.35s;
+  transition: cubic-bezier(0.7, 0.28, 0.1, 0.045) 0.35s;
   transform: rotate(0deg);
 }
 
 .light-icon {
-  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.35s;
+  transition: cubic-bezier(0.7, 0.28, 0.1, 0.045) 0.35s;
   transform: rotate(90deg);
 }
