@@ -1,6 +1,6 @@
 .nav-bar {
-  background-color: var(--color-success-background);
-  padding: 0.5rem 4rem;
+  background-color: var(--color-nav-bg);
+  padding: 0.8rem 4rem;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -16,16 +16,11 @@
 }
 .brand-name {
   font-family: "Baloo 2", cursive;
-  color: var(--color-success);
+  color: var(--color-primary);
   letter-spacing: 0.07em;
 }
 .nav-logo {
   width: 40px;
-}
-.nav-user {
-  font-size: 2.4rem;
-  color: var(--color-gray-600);
-  cursor: pointer;
 }
 
 .dialog-box {
@@ -40,6 +35,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  color: var(--color-text);
 }
 .user-logged {
   display: flex;
@@ -48,9 +44,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: var(--color-gray-600);
 }
 .dialog.ct-btn.ct-green-bd.active {
-  color: var(--color-success);
+  color: var(--color-primary);
   font-weight: bold;
   background-color: var(--color-gray-100);
 }

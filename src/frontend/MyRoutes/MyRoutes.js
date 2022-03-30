@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { NotesPage, LandingPage, Login, Signup } from "../pages/pagesExport";
 import { ProtectedRoute } from "../protectedRoute/ProtectedRoute";
 import { useAuth } from "../contexts/contextExport";
@@ -26,6 +26,7 @@ const MyRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );
 };
