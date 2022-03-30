@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts/contextExport";
+import { ThemeToggler } from "../componentsExport";
 const Navbar = () => {
   const { auth, setAuth } = useAuth();
   const logoutHandler = () => {
@@ -22,6 +23,7 @@ const Navbar = () => {
       </NavLink>
 
       <div className="ct-right-nav">
+        <ThemeToggler />
         <div className="ct-nav-user">
           {auth.status ? (
             <div className="user-logged">

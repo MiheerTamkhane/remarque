@@ -46,11 +46,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: var(--color-dark); */
-  background-color: var(--color-gray-100);
-  color: var(--color-gray-800);
 }
-
+.dark-mode {
+  background-color: var(--color-gray-1000);
+  color: var(--color-light);
+}
+.light-mode {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-1000);
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
