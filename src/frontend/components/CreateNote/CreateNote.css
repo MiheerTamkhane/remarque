@@ -51,19 +51,19 @@
 }
 
 .ql-snow.ql-toolbar button:hover .ql-stroke {
-  stroke: red;
+  stroke: var(--color-text);
 }
 
 .ql-snow.ql-toolbar button.ql-active .ql-stroke {
-  stroke: blue;
+  stroke: var(--color-text);
 }
 
 .ql-snow.ql-toolbar button:hover .ql-fill {
-  fill: green;
+  fill: var(--color-text);
 }
 
 .ql-snow.ql-toolbar button.ql-active .ql-fill {
-  fill: blueviolet;
+  fill: var(--color-text);
 }
 
 @media only screen and (max-width: 750px) {
