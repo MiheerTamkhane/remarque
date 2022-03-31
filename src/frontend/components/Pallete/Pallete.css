@@ -23,6 +23,7 @@
 .color {
   padding: 1rem;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .color.red {
