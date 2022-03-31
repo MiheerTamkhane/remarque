@@ -2,6 +2,7 @@ import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./CreateNote.css";
+import { BottomToolbar } from "../componentsExport";
 const CreateNote = () => {
   const [text, setText] = useState("");
   console.log("from createNote : ", text);
@@ -18,6 +19,7 @@ const CreateNote = () => {
           theme="snow"
         />
         <input type="text" placeholder="Title" className="note-title" />
+        <BottomToolbar />
       </section>
     </div>
   );
