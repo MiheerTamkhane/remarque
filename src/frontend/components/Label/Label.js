@@ -1,12 +1,13 @@
-import { useState } from "react";
 import "./Label.css";
-const Label = () => {
-  const [isLabel, setIsLabel] = useState(false);
+const Label = ({ isLabel, setIsLabel, setIsPallete }) => {
   return (
     <div className="toolbar-label-container">
       <button
         className="ct-btn show-label"
-        onClick={() => setIsLabel(!isLabel)}
+        onClick={() => {
+          setIsLabel(!isLabel);
+          setIsPallete(false);
+        }}
       >
         Add Label
       </button>
