@@ -1,0 +1,82 @@
+.create-note-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  position: relative;
+}
+.note-section {
+  position: relative;
+  border: 1px solid var(--color-text);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 5px;
+}
+.note-title {
+  position: absolute;
+  top: 38px;
+  width: 80%;
+  font-size: 1.5rem;
+  transition: 0.3s ease;
+  padding: 0.4rem;
+  margin: 5px 7px;
+  background-color: var(--color-body-bg);
+  outline: none;
+  border: none;
+  color: var(--color-text);
+}
+.ql-editor.ql-blank::before {
+  color: var(--color-text);
+}
+.ql-snow .ql-picker {
+  color: var(--editor-color);
+}
+.ql-snow .ql-stroke {
+  fill: none;
+  stroke: var(--editor-color);
+}
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+  fill: var(--editor-color);
+}
+.ql-snow.ql-toolbar {
+  border: none;
+  border-bottom: 1px solid var(--color-text);
+}
+.ql-container.ql-snow {
+  border: none;
+  margin-top: 2.8rem;
+  font-size: 1rem;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-stroke {
+  stroke: red;
+}
+
+.ql-snow.ql-toolbar button.ql-active .ql-stroke {
+  stroke: blue;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-fill {
+  fill: green;
+}
+
+.ql-snow.ql-toolbar button.ql-active .ql-fill {
+  fill: blueviolet;
+}
+
+@media only screen and (max-width: 750px) {
+  .note-section {
+    position: initial;
+  }
+  .note-title {
+    top: 0;
+  }
+  .ql-snow.ql-toolbar {
+    margin-top: 2.8rem;
+  }
+  .ql-container.ql-snow {
+    margin-top: 0rem;
+  }
+}
