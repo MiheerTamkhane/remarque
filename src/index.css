@@ -8,17 +8,19 @@
   --color-primary: hsl(160, 100%, 40%);
   --color-nav-bg: hsl(160, 66%, 85%);
   --color-primary-muted: hsl(160, 66%, 85%);
-  --color-gray-600: hsl(225, 15%, 50%);
+  --color-gray-600: hsl(226, 15%, 50%);
   --color-gray-100: hsl(220, 23%, 95%);
 }
 
 body.light-mode {
   --color-body-bg: hsl(220, 23%, 95%);
   --color-text: hsl(145, 12%, 40%);
+  --editor-color: hsla(132, 16%, 50%, 10);
 }
 body.dark-mode {
   --color-body-bg: hsl(225, 15%, 15%);
   --color-text: hsl(140, 23%, 95%);
+  --editor-color: hsl(160, 100%, 40%);
 }
 
 body {
@@ -28,7 +30,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: 250ms ease-in;
+  transition: 0.3s ease;
   background-color: var(--color-body-bg);
   color: var(--color-text);
 }

@@ -2,16 +2,14 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
-const Sidebar = () => {
-  const [isSidebar, setIsSidebar] = useState(false);
-
+const Sidebar = ({ isSidebar, onSetSidebar }) => {
   return (
     <div className={isSidebar ? "sidebar-container" : "sidebar-container hide"}>
       <div className="items-container">
         <div className="sidebar-arrow">
           <span
             className="material-icons-outlined arrow"
-            onClick={() => setIsSidebar(!isSidebar)}
+            onClick={() => onSetSidebar(!isSidebar)}
           >
             {isSidebar ? "close" : "arrow_forward_ios"}
           </span>
