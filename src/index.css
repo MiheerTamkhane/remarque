@@ -4,6 +4,7 @@
   margin: 0%;
   box-sizing: border-box;
 }
+
 :root {
   --color-primary: hsl(160, 100%, 40%);
   --color-nav-bg: hsl(160, 66%, 85%);
@@ -14,25 +15,24 @@
 
 body.light-mode {
   --color-body-bg: hsl(220, 23%, 95%);
-  --color-text: hsl(145, 12%, 40%);
-  --editor-color: hsla(132, 16%, 50%, 10);
+  --color-text: hsl(215, 28%, 17%);
+  --editor-color: hsl(215, 28%, 17%);
 }
 body.dark-mode {
-  --color-body-bg: hsl(225, 15%, 15%);
+  --color-body-bg: hsl(197, 14%, 10%);
   --color-text: hsl(140, 23%, 95%);
   --editor-color: hsl(160, 100%, 40%);
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: 0.3s ease;
   background-color: var(--color-body-bg);
   color: var(--color-text);
+  letter-spacing: 0.01em;
 }
 
 code {

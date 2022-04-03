@@ -4,7 +4,11 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
-import { AuthProvider, ThemeProvider } from "./frontend/contexts/contextExport";
+import {
+  AuthProvider,
+  ThemeProvider,
+  NoteProvider,
+} from "./frontend/contexts/contextExport";
 // Call make Server
 makeServer();
 
@@ -13,7 +17,9 @@ ReactDOM.render(
     <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
-          <App />
+          <NoteProvider>
+            <App />
+          </NoteProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
