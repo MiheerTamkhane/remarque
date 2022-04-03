@@ -1,0 +1,32 @@
+.note {
+  max-width: 100%;
+  min-width: 150px;
+  border: 1px solid var(--color-text);
+  border-radius: 7px;
+  padding: 0.5rem;
+}
+.note > h3 {
+  letter-spacing: 0.1em;
+}
+.note-card {
+  letter-spacing: 0.07em;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.note .label-render-div {
+  margin: 0.5rem;
+  font-size: 0.8rem;
+  justify-content: start;
+}
+.note .toolbar-tools {
+  margin-top: 0.8rem;
+  justify-content: start;
+}
+.note .toolbar-tools > * {
+  font-size: 1.4rem;
+}
+.delete-note,
+.edit-note {
+  font-size: 1.8rem;
+  cursor: pointer;
+}

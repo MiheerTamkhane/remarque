@@ -15,7 +15,7 @@
 }
 .note-title {
   position: absolute;
-  top: 38px;
+  top: 62px;
   width: 80%;
   font-size: 1.5rem;
   transition: 0.3s ease;
@@ -24,12 +24,16 @@
   background-color: var(--color-body-bg);
   outline: none;
   border: none;
-  color: var(--color-text);
+  color: var(--gray-500);
 }
 
 /* REACT QUILL STYLES BELOW  */
+.react-quill {
+  max-width: 450px;
+}
 .ql-editor.ql-blank::before {
-  color: var(--color-text);
+  color: var(--gray-500);
+  font-style: normal;
 }
 .ql-snow .ql-picker {
   color: var(--editor-color);
@@ -53,7 +57,7 @@
 }
 
 .ql-snow.ql-toolbar button:hover .ql-stroke {
-  stroke: var(--color-text);
+  stroke: var(--gray-500);
 }
 
 .ql-snow.ql-toolbar button.ql-active .ql-stroke {
@@ -67,14 +71,61 @@
 .ql-snow.ql-toolbar button.ql-active .ql-fill {
   fill: var(--color-text);
 }
+/* LABEL OUTPUT DIV STYLES  */
+.label-render-div {
+  width: 80%;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.label {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  border: 1px solid var(--color-text);
+  border-radius: 5px;
+  gap: 5px;
+}
+.label-delete {
+  font-size: 1rem;
+  cursor: pointer;
+}
+/* BOTTOM PALLETS STYLE Below  */
+.bottom-toolbar {
+  padding: 0.5rem 0;
+  margin: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.add-note.ct-btn {
+  background-color: var(--color-primary);
+  color: var(--gray-100);
+  font-size: 1.2rem;
+}
 
+.close-note {
+  background-color: var(--red-500);
+  color: var(--gray-100);
+}
+.pin-note {
+  font-size: 1.8rem;
+}
+.toolbar-tools {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.toolbar-tools > * {
+  cursor: pointer;
+}
 /* MEDIA QUERIES  */
 @media only screen and (max-width: 750px) {
-  .note-section {
-    position: initial;
-  }
   .note-title {
-    top: 0;
+    top: -4px;
   }
   .ql-snow.ql-toolbar {
     margin-top: 2.8rem;
