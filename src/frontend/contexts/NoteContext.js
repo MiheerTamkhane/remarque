@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer, useState } from "react";
 import { noteReducer } from "../reducers/NoteReducer";
+import { updateNoteService } from "../services/NotesServices/updateNoteService";
 const NoteContext = createContext();
 
 const NoteProvider = ({ children }) => {
@@ -7,15 +8,25 @@ const NoteProvider = ({ children }) => {
     noteTitle: "",
     noteDesc: "",
     notePinned: false,
-    noteColor: "",
+    noteColor: "default",
     tags: [],
   };
   const [noteState, dispatchNote] = useReducer(noteReducer, initialNote);
   const [noteList, setNoteList] = useState([]);
 
+  const updateNoteHandler = async (id, note, authToken) => {
+    const response = await updateNoteService(id, note, authToken);
+    setNoteList(response);
+  };
   return (
     <NoteContext.Provider
-      value={{ noteState, dispatchNote, noteList, setNoteList }}
+      value={{
+        noteState,
+        dispatchNote,
+        noteList,
+        setNoteList,
+        updateNoteHandler,
+      }}
     >
       {children}
     </NoteContext.Provider>

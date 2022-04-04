@@ -21,7 +21,7 @@
   transition: 0.3s ease;
   padding: 0.4rem;
   margin: 5px 7px;
-  background-color: var(--color-body-bg);
+  background-color: transparent;
   outline: none;
   border: none;
   color: var(--gray-500);
