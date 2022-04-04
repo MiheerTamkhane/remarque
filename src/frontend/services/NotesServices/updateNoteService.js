@@ -10,10 +10,10 @@ const updateNoteService = async (id, note, authToken) => {
         },
       }
     );
-    console.log("update");
+
     return data.notes;
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 

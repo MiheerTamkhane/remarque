@@ -17,8 +17,6 @@ const NoteProvider = ({ children }) => {
   const updateNoteHandler = async (id, note, authToken) => {
     const response = await updateNoteService(id, note, authToken);
     setNoteList(response);
-    console.log(note);
-    console.log("handler run");
   };
   return (
     <NoteContext.Provider
