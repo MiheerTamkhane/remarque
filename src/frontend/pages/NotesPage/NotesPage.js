@@ -16,9 +16,18 @@ const NotesPage = () => {
       <div className="notes-container">
         <CreateNote />
         <div className="notes-render-div">
+          <h3>Pinned Notes</h3>
           <MasonryLayout>
             {noteList.map((note, i) => {
-              return <Note key={i} note={note} />;
+              return note.notePinned && <Note key={i} note={note} />;
+            })}
+          </MasonryLayout>
+        </div>
+        <div className="notes-render-div">
+          <h3>Other Notes</h3>
+          <MasonryLayout>
+            {noteList.map((note, i) => {
+              return !note.notePinned && <Note key={i} note={note} />;
             })}
           </MasonryLayout>
         </div>

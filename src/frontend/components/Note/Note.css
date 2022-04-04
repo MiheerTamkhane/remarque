@@ -7,11 +7,19 @@
 }
 .note > h3 {
   letter-spacing: 0.1em;
+  word-wrap: break-word;
+  word-break: break-all;
+  padding: 0 0.5rem;
 }
-.note-card {
+.note-card-desc {
+  margin: 0 1rem;
+  padding: 0.5rem;
   letter-spacing: 0.07em;
   word-wrap: break-word;
   word-break: break-all;
+}
+.note-card-desc p img {
+  width: 100%;
 }
 .note .label-render-div {
   margin: 0.5rem;

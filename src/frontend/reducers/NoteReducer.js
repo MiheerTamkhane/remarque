@@ -26,7 +26,7 @@ const noteReducer = (state, action) => {
         noteTitle: "",
         noteDesc: "",
         notePinned: false,
-        noteColor: "#efefef",
+        noteColor: "default",
         tags: [],
       };
     default:

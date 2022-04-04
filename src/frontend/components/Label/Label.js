@@ -1,7 +1,26 @@
 import { useState } from "react";
 import "./Label.css";
-const Label = ({ isLabel, setIsLabel, setIsPallete, dispatchNote }) => {
+const Label = ({
+  isLabel,
+  setIsLabel,
+  setIsPallete,
+  dispatchNote,
+  setUpdatedNote,
+  isModal,
+}) => {
   const [tag, setTag] = useState("");
+  const updateNoteTags = (tag) => {
+    if (isModal) {
+      setUpdatedNote((updatedNote) => ({
+        ...updatedNote,
+        tags: [...updatedNote.tags, tag],
+      }));
+    } else {
+      dispatchNote({ type: "ADD_TAG", payload: tag });
+    }
+    setTag("");
+  };
+
   return (
     <div className="toolbar-label-container">
       <span
@@ -26,8 +45,7 @@ const Label = ({ isLabel, setIsLabel, setIsPallete, dispatchNote }) => {
           <span
             className="material-icons add-label"
             onClick={() => {
-              dispatchNote({ type: "ADD_TAG", payload: tag });
-              setTag("");
+              updateNoteTags(tag);
             }}
           >
             add

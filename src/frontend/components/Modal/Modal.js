@@ -1,32 +1,32 @@
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import "./CreateNote.css";
+import "./Modal.css";
 import { Label, Pallete } from "../componentsExport";
-import { useNote, useAuth } from "../../contexts/contextExport";
-import { addNoteService } from "../../services/servicesExport";
-const CreateNote = () => {
+import { useAuth, useNote } from "../../contexts/contextExport";
+const Modal = ({
+  currentNote,
+  setIsModal,
+  isModal,
+  updatedNote,
+  setUpdatedNote,
+}) => {
+  const { updateNoteHandler } = useNote();
+  const {
+    auth: { authToken },
+  } = useAuth();
   const [isLabel, setIsLabel] = useState(false);
   const [isPallete, setIsPallete] = useState(false);
-  const [note, setNote] = useState("");
-  const { auth } = useAuth();
-  const { noteState, dispatchNote, setNoteList } = useNote();
-  const { notePinned, noteColor, tags, noteTitle } = noteState;
-  const addNoteHandler = async (authToken) => {
-    const notes = await addNoteService(authToken, {
-      ...noteState,
-      noteDesc: note,
-    });
-    setNoteList(notes);
-    dispatchNote({ type: "CLEAR_FIELDS" });
-    setNote("");
-  };
+  const { _id } = currentNote;
+
   return (
-    <div className="create-note-container">
-      <section className={`note-section ${noteColor}`}>
+    <div className="update-note-container">
+      <section className={`modal-section ${updatedNote.noteColor}`}>
         <ReactQuill
-          value={note}
-          onChange={setNote}
+          value={updatedNote.noteDesc}
+          onChange={(e) => {
+            setUpdatedNote({ ...updatedNote, noteDesc: e });
+          }}
           className="react-quill"
           modules={modules}
           formats={formats}
@@ -36,22 +36,27 @@ const CreateNote = () => {
         <input
           type="text"
           placeholder="Title"
-          className="note-title"
-          value={noteTitle}
+          className="modal-title"
+          value={updatedNote.noteTitle}
           onChange={(e) => {
-            dispatchNote({ type: "NOTE_TITLE", payload: e.target.value });
+            setUpdatedNote({ ...updatedNote, noteTitle: e.target.value });
           }}
         />
-        {tags.length > 0 && (
+        {updatedNote.tags.length > 0 && (
           <div className="label-render-div">
-            {tags.map((tag, i) => {
+            {updatedNote.tags.map((tag, i) => {
               return (
                 <div key={i} className="label">
                   <span className="label-content">{tag}</span>
                   <span
                     className="material-icons label-delete"
                     onClick={() =>
-                      dispatchNote({ type: "RMV_TAG", payload: tag })
+                      setUpdatedNote({
+                        ...updatedNote,
+                        tags: [
+                          ...updatedNote.tags.filter((item) => item !== tag),
+                        ],
+                      })
                     }
                   >
                     close
@@ -65,24 +70,29 @@ const CreateNote = () => {
           <div className="toolbar-tools">
             <span
               className={
-                notePinned
+                updatedNote.notePinned
                   ? "material-icons pin-note"
                   : "material-icons-outlined pin-note"
               }
               onClick={() => {
-                dispatchNote({ type: "IS_PINNED" });
+                setUpdatedNote({
+                  ...updatedNote,
+                  notePinned: !updatedNote.notePinned,
+                });
               }}
             >
               push_pin
             </span>
             <Label
-              dispatchNote={dispatchNote}
+              isModal={isModal}
+              setUpdatedNote={setUpdatedNote}
               isLabel={isLabel}
               setIsLabel={setIsLabel}
               setIsPallete={setIsPallete}
             />
             <Pallete
-              dispatchNote={dispatchNote}
+              isModal={isModal}
+              setUpdatedNote={setUpdatedNote}
               isPallete={isPallete}
               setIsPallete={setIsPallete}
               setIsLabel={setIsLabel}
@@ -91,10 +101,19 @@ const CreateNote = () => {
           <button
             className="ct-btn add-note"
             onClick={() => {
-              addNoteHandler(auth.authToken);
+              updateNoteHandler(_id, updatedNote, authToken);
+              setIsModal(false);
             }}
           >
-            Add
+            Update Note
+          </button>
+          <button
+            className="ct-btn add-note"
+            onClick={() => {
+              setIsModal(false);
+            }}
+          >
+            Cancel
           </button>
         </div>
       </section>
@@ -102,6 +121,7 @@ const CreateNote = () => {
   );
 };
 
+export { Modal };
 const modules = {
   toolbar: [
     [{ header: [1, 2, false] }],
@@ -130,5 +150,3 @@ const formats = [
   "image",
   "code",
 ];
-
-export { CreateNote };

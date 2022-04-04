@@ -25,7 +25,7 @@
   border-radius: 50%;
   cursor: pointer;
 }
-.transparent {
+.default {
   background-color: var(--color-body-bg);
   color: var(--color-text);
 }
