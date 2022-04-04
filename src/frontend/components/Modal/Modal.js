@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./Modal.css";
-import { Label, Pallete } from "../componentsExport";
+import { Label, Pallete, ReactQuillEditor } from "../componentsExport";
 import { useAuth, useNote } from "../../contexts/contextExport";
 const Modal = ({
   currentNote,
@@ -18,20 +18,12 @@ const Modal = ({
   const [isLabel, setIsLabel] = useState(false);
   const [isPallete, setIsPallete] = useState(false);
   const { _id } = currentNote;
-
   return (
     <div className="update-note-container">
       <section className={`modal-section ${updatedNote.noteColor}`}>
-        <ReactQuill
+        <ReactQuillEditor
           value={updatedNote.noteDesc}
-          onChange={(e) => {
-            setUpdatedNote({ ...updatedNote, noteDesc: e });
-          }}
-          className="react-quill"
-          modules={modules}
-          formats={formats}
-          placeholder="Take a Note..."
-          theme="snow"
+          setValue={setUpdatedNote}
         />
         <input
           type="text"
@@ -122,31 +114,3 @@ const Modal = ({
 };
 
 export { Modal };
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, false] }],
-    ["bold", "italic", "underline", "strike", "blockquote", "code"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image"],
-    ["clean"],
-  ],
-};
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "code",
-];

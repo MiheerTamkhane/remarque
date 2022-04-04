@@ -2,37 +2,29 @@ import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./CreateNote.css";
-import { Label, Pallete } from "../componentsExport";
+import { Label, Pallete, ReactQuillEditor } from "../componentsExport";
 import { useNote, useAuth } from "../../contexts/contextExport";
 import { addNoteService } from "../../services/servicesExport";
 const CreateNote = () => {
+  const { auth } = useAuth();
   const [isLabel, setIsLabel] = useState(false);
   const [isPallete, setIsPallete] = useState(false);
-  const [note, setNote] = useState("");
-  const { auth } = useAuth();
   const { noteState, dispatchNote, setNoteList } = useNote();
   const { notePinned, noteColor, tags, noteTitle } = noteState;
+  const [tempNote, setTempNote] = useState(noteState);
   const addNoteHandler = async (authToken) => {
     const notes = await addNoteService(authToken, {
       ...noteState,
-      noteDesc: note,
+      noteDesc: tempNote.noteDesc,
     });
     setNoteList(notes);
     dispatchNote({ type: "CLEAR_FIELDS" });
-    setNote("");
+    setTempNote("");
   };
   return (
     <div className="create-note-container">
       <section className={`note-section ${noteColor}`}>
-        <ReactQuill
-          value={note}
-          onChange={setNote}
-          className="react-quill"
-          modules={modules}
-          formats={formats}
-          placeholder="Take a Note..."
-          theme="snow"
-        />
+        <ReactQuillEditor value={tempNote.noteDesc} setValue={setTempNote} />
         <input
           type="text"
           placeholder="Title"
@@ -101,34 +93,5 @@ const CreateNote = () => {
     </div>
   );
 };
-
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, false] }],
-    ["bold", "italic", "underline", "strike", "blockquote", "code"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image"],
-    ["clean"],
-  ],
-};
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "code",
-];
 
 export { CreateNote };
