@@ -1,7 +1,4 @@
 .notes-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: 0.3s ease;
   margin-left: 3rem;
 }
@@ -10,7 +7,7 @@
   flex-basis: 100%;
 }
 .margin-left-20 {
-  margin-left: 20%;
+  margin-left: 13rem;
 }
 .notes-render-div {
   width: 90%;

@@ -3,7 +3,7 @@ import "./Note.css";
 import { Modal } from "../componentsExport";
 import { useNote, useAuth } from "../../contexts/contextExport";
 const Note = ({ note }) => {
-  const { updateNoteHandler } = useNote();
+  const { updateNoteHandler, addNoteToArchiveHandler } = useNote();
   const {
     auth: { authToken },
   } = useAuth();
@@ -23,23 +23,27 @@ const Note = ({ note }) => {
             setUpdatedNote={setUpdatedNote}
           />
         )}
-        <h3> {noteTitle}</h3>
 
-        <div
-          className="note-card-desc"
-          dangerouslySetInnerHTML={{ __html: noteDesc }}
-        />
-        {tags.length > 0 && (
-          <div className="label-render-div">
-            {tags.map((tag, i) => {
-              return (
-                <div key={i} className="label">
-                  <span className="label-content">{tag}</span>
-                </div>
-              );
-            })}
-          </div>
-        )}
+        <div className="note-body">
+          <h3>{noteTitle}</h3>
+          <div
+            className="note-card-desc"
+            dangerouslySetInnerHTML={{ __html: noteDesc }}
+          />
+
+          {tags.length > 0 && (
+            <div className="label-render-div">
+              {tags.map((tag, i) => {
+                return (
+                  <div key={i} className="label">
+                    <span className="label-content">{tag}</span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         <div className="toolbar-tools">
           <span
             className={
@@ -64,9 +68,25 @@ const Note = ({ note }) => {
           >
             edit
           </span>
-          <span className="material-icons-outlined archive-note">archive</span>
+          <span
+            className="material-icons-outlined archive-note"
+            onClick={() => {
+              addNoteToArchiveHandler(_id, updatedNote, authToken);
+            }}
+          >
+            archive
+          </span>
 
-          <span className="material-icons-outlined delete-note">
+          <span
+            className="material-icons-outlined delete-note"
+            onClick={() =>
+              updateNoteHandler(
+                _id,
+                { ...updatedNote, noteInTrash: true },
+                authToken
+              )
+            }
+          >
             delete_outline
           </span>
         </div>

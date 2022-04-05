@@ -1,36 +1,56 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
+import { useTheme } from "../../contexts/ThemeContext";
 
-const Sidebar = ({ isSidebar, onSetSidebar }) => {
+const Sidebar = () => {
+  const { isSidebar, setIsSidebar } = useTheme();
   return (
     <div className={isSidebar ? "sidebar-container" : "sidebar-container hide"}>
       <div className="items-container">
         <div className="sidebar-arrow">
           <span
             className="material-icons-outlined arrow"
-            onClick={() => onSetSidebar(!isSidebar)}
+            onClick={() => setIsSidebar(!isSidebar)}
           >
-            {isSidebar ? "close" : "arrow_forward_ios"}
+            {isSidebar ? "close" : "menu"}
           </span>
         </div>
-        <NavLink to="/notespage" className="sidebar-items">
+        <NavLink
+          to="/notespage"
+          className={({ isActive }) =>
+            isActive ? "sidebar-items active" : "sidebar-items"
+          }
+        >
           <span className="material-icons-outlined">note_add</span>
           <span>Notes</span>
         </NavLink>
-        <NavLink to="/notespage" className="sidebar-items">
-          <span className="material-icons-outlined">notifications_none</span>
-          <span>Reminders</span>
-        </NavLink>
-        <NavLink to="/notespage" className="sidebar-items">
+
+        <NavLink
+          to="/labels"
+          className={({ isActive }) =>
+            isActive ? "sidebar-items active" : "sidebar-items"
+          }
+        >
           <span className="material-icons-outlined">label</span>
           <span>Label</span>
         </NavLink>
-        <NavLink to="/notespage" className="sidebar-items">
+
+        <NavLink
+          to="/archive"
+          className={({ isActive }) =>
+            isActive ? "sidebar-items active" : "sidebar-items"
+          }
+        >
           <span className="material-icons-outlined">archive</span>
           <span>Archive</span>
         </NavLink>
-        <NavLink to="/notespage" className="sidebar-items">
+
+        <NavLink
+          to="/trash"
+          className={({ isActive }) =>
+            isActive ? "sidebar-items active" : "sidebar-items"
+          }
+        >
           <span className="material-icons-outlined">delete_outline</span>
           <span>Trash</span>
         </NavLink>

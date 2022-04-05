@@ -4,7 +4,7 @@ import "./MasonryLayout.css";
 
 const breakpointColumnsObj = {
   default: 4,
-  1000: 3,
+  1120: 3,
   860: 2,
   600: 1,
 };

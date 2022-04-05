@@ -1,0 +1,10 @@
+.trash-page {
+  margin-top: 2rem;
+  min-height: 100vh;
+  flex-basis: 100%;
+  margin-left: 1rem;
+}
+.trash-page h3 {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}

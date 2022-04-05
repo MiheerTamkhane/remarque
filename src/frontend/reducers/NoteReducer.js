@@ -28,6 +28,7 @@ const noteReducer = (state, action) => {
         notePinned: false,
         noteColor: "default",
         tags: [],
+        noteInTrash: false,
       };
     default:
       return state;

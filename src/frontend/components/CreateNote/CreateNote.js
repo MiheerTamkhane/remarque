@@ -1,6 +1,4 @@
 import { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 import "./CreateNote.css";
 import { Label, Pallete, ReactQuillEditor } from "../componentsExport";
 import { useNote, useAuth } from "../../contexts/contextExport";

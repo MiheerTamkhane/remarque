@@ -1,0 +1,10 @@
+.archive-page {
+  margin-top: 2rem;
+  min-height: 100vh;
+  flex-basis: 100%;
+  margin-left: 1rem;
+}
+.archive-page h3 {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
