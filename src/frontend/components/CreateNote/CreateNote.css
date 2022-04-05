@@ -29,50 +29,6 @@
   color: var(--gray-500);
 }
 
-/* REACT QUILL STYLES BELOW  */
-.react-quill {
-  max-width: 450px;
-}
-.ql-editor.ql-blank::before {
-  color: var(--gray-500);
-  font-style: normal;
-}
-.ql-snow .ql-picker {
-  color: var(--editor-color);
-}
-.ql-snow .ql-stroke {
-  fill: none;
-  stroke: var(--editor-color);
-}
-.ql-snow .ql-fill,
-.ql-snow .ql-stroke.ql-fill {
-  fill: var(--editor-color);
-}
-.ql-snow.ql-toolbar {
-  border: none;
-  border-bottom: 1px solid var(--color-text);
-}
-.ql-container.ql-snow {
-  border: none;
-  margin-top: 2.8rem;
-  font-size: 1rem;
-}
-
-.ql-snow.ql-toolbar button:hover .ql-stroke {
-  stroke: var(--gray-500);
-}
-
-.ql-snow.ql-toolbar button.ql-active .ql-stroke {
-  stroke: var(--color-text);
-}
-
-.ql-snow.ql-toolbar button:hover .ql-fill {
-  fill: var(--color-text);
-}
-
-.ql-snow.ql-toolbar button.ql-active .ql-fill {
-  fill: var(--color-text);
-}
 /* LABEL OUTPUT DIV STYLES  */
 .label-render-div {
   width: 80%;

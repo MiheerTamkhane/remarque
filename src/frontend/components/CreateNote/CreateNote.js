@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./CreateNote.css";
 import { Label, Pallete, ReactQuillEditor } from "../componentsExport";
 import { useNote, useAuth } from "../../contexts/contextExport";
 import { addNoteService } from "../../services/servicesExport";
+import "./CreateNote.css";
 const CreateNote = () => {
   const { auth } = useAuth();
   const [isLabel, setIsLabel] = useState(false);
