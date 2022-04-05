@@ -16,7 +16,7 @@ const ArchivePage = () => {
         <div className="trash-page">
           <h3>Archived Notes</h3>
           <MasonryLayout>
-            {archiveList.length === 0 ? (
+            {archiveList.length < 1 ? (
               <h3>No Archive Notes</h3>
             ) : (
               archiveList.map((note, i) => {
