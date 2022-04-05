@@ -23,26 +23,33 @@ const NoteProvider = ({ children }) => {
   const [noteList, setNoteList] = useState([]);
   const [archiveList, setArchiveList] = useState([]);
 
+  // Update note Handler function 🔼
   const updateNoteHandler = async (id, note, authToken) => {
     const response = await updateNoteService(id, note, authToken);
     setNoteList(response);
   };
+
+  // Delete note Handler function 🔻
   const deleteNoteHandler = async (id, authToken) => {
     const response = await deleteNoteService(id, authToken);
     setNoteList(response);
   };
+
+  // Adding note to Archives function
   const addNoteToArchiveHandler = async (id, note, authToken) => {
     const response = await addNoteToArchiveService(id, note, authToken);
     setArchiveList(response.archives);
     setNoteList(response.notes);
   };
 
+  // Restoring notes from archives function
   const restoreFromArchiveHandler = async (id, authToken) => {
     const response = await restoreFromArchiveService(id, authToken);
     setArchiveList(response.archives);
     setNoteList(response.notes);
   };
 
+  // delete direct from archive handler function
   const deleteFromArchiveHandler = async (id, authToken) => {
     const response = await deleteFromArchiveService(id, authToken);
     setArchiveList(response);
