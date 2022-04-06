@@ -25,7 +25,7 @@ const LabelsPage = () => {
             : [...state.newTags, action.payload],
         };
       default:
-        return new Error("not good"); //CHANGE
+        return state;
     }
   }
 
