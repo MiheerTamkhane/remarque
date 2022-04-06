@@ -14,18 +14,34 @@ const LabelsPage = () => {
     return [...acc, ...curr.tags];
   }, []);
   const uniqueTags = [...new Set(newLabels)];
-  const reduceTags = (state, action) => {
-    console.log(state, action);
+
+  function reduceTags(state, action) {
     switch (action.type) {
       case "FILTER_BY_TAG":
-        console.log("from reducer : ", action.payload);
-      // return state.filter((note) => note.tags.includes(action.payload));
-
+        return {
+          ...state,
+          newTags: state.newTags.includes(action.payload)
+            ? state.newTags.filter((val) => val !== action.payload)
+            : [...state.newTags, action.payload],
+        };
       default:
-        return state;
+        return new Error("not good"); //CHANGE
     }
+  }
+
+  const filterByTags = (newTags, noteList) => {
+    if (newTags.length !== 0) {
+      return noteList.filter(
+        (note) => note.tags.filter((tag) => newTags.includes(tag)).length > 0
+      );
+    }
+    return noteList;
   };
-  const [uniqueState, dispatch] = useReducer(reduceTags, noteList);
+
+  const [state, dispatch] = useReducer(reduceTags, {
+    newTags: [],
+  });
+  const newList = filterByTags(state.newTags, noteList);
 
   return (
     <>
@@ -38,18 +54,14 @@ const LabelsPage = () => {
               <>
                 <h4>Filter By Tags</h4>
                 <ul className="filter-tags-container">
-                  <li className="tag-btn">
-                    <label htmlFor="all">
-                      <input type="checkbox" id="all" />
-                      All
-                    </label>
-                  </li>
                   {uniqueTags.map((tag, i) => (
                     <li key={i} className="tag-btn">
                       <label htmlFor={tag}>
                         <input
                           type="checkbox"
                           id={tag}
+                          value={tag}
+                          checked={state.newTags.includes(tag)}
                           onChange={() =>
                             dispatch({ type: "FILTER_BY_TAG", payload: tag })
                           }
@@ -63,7 +75,7 @@ const LabelsPage = () => {
             )}
 
             <MasonryLayout>
-              {uniqueState.map((note, i) => {
+              {newList.map((note, i) => {
                 return note.tags.length > 0 && <Note key={i} note={note} />;
               })}
             </MasonryLayout>
