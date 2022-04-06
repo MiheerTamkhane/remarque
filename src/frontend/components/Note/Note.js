@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import "./Note.css";
+import moment from "moment";
 import { Modal } from "../componentsExport";
 import { useNote, useAuth } from "../../contexts/contextExport";
+import "./Note.css";
 const Note = ({ note }) => {
   const { updateNoteHandler, addNoteToArchiveHandler } = useNote();
   const {
     auth: { authToken },
   } = useAuth();
-  const { noteTitle, noteDesc, notePinned, noteColor, tags, _id } = note;
+  const { noteTitle, noteDesc, notePinned, noteColor, tags, _id, createdAt } =
+    note;
   const [isModal, setIsModal] = useState(false);
   const [updatedNote, setUpdatedNote] = useState(note);
 
@@ -42,6 +44,9 @@ const Note = ({ note }) => {
               })}
             </div>
           )}
+          <div className="note-time">
+            {moment(createdAt).format("DD/MM/YYYY, h:mm a")}
+          </div>
         </div>
 
         <div className="toolbar-tools">

@@ -14,6 +14,7 @@ const CreateNote = () => {
     const notes = await addNoteService(authToken, {
       ...noteState,
       noteDesc: tempNote.noteDesc,
+      createdAt: new Date(),
     });
     setNoteList(notes);
     dispatchNote({ type: "CLEAR_FIELDS" });

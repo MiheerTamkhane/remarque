@@ -29,6 +29,7 @@ const noteReducer = (state, action) => {
         noteColor: "default",
         tags: [],
         noteInTrash: false,
+        createdAt: new Date(),
       };
     default:
       return state;
