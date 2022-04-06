@@ -14,10 +14,19 @@ const LabelsPage = () => {
     return [...acc, ...curr.tags];
   }, []);
   const uniqueTags = [...new Set(newLabels)];
-  const [uniqueState, dispatch] = useReducer(reduceTags, []);
   const reduceTags = (state, action) => {
     console.log(state, action);
+    switch (action.type) {
+      case "FILTER_BY_TAG":
+        console.log("from reducer : ", action.payload);
+      // return state.filter((note) => note.tags.includes(action.payload));
+
+      default:
+        return state;
+    }
   };
+  const [uniqueState, dispatch] = useReducer(reduceTags, noteList);
+
   return (
     <>
       <Sidebar />
@@ -38,7 +47,13 @@ const LabelsPage = () => {
                   {uniqueTags.map((tag, i) => (
                     <li key={i} className="tag-btn">
                       <label htmlFor={tag}>
-                        <input type="checkbox" id={tag} />
+                        <input
+                          type="checkbox"
+                          id={tag}
+                          onChange={() =>
+                            dispatch({ type: "FILTER_BY_TAG", payload: tag })
+                          }
+                        />
                         {tag}
                       </label>
                     </li>
@@ -48,7 +63,7 @@ const LabelsPage = () => {
             )}
 
             <MasonryLayout>
-              {noteList.map((note, i) => {
+              {uniqueState.map((note, i) => {
                 return note.tags.length > 0 && <Note key={i} note={note} />;
               })}
             </MasonryLayout>

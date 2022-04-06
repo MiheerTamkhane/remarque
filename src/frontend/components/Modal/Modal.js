@@ -91,7 +91,11 @@ const Modal = ({
           <button
             className="ct-btn add-note"
             onClick={() => {
-              updateNoteHandler(_id, updatedNote, authToken);
+              updateNoteHandler(
+                _id,
+                { ...updatedNote, createdAt: new Date() },
+                authToken
+              );
               setIsModal(false);
             }}
           >
