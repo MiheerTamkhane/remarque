@@ -1,6 +1,14 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { NotesPage, LandingPage, Login, Signup } from "../pages/pagesExport";
+import {
+  NotesPage,
+  LandingPage,
+  Login,
+  Signup,
+  TrashPage,
+  ArchivePage,
+  LabelsPage,
+} from "../pages/pagesExport";
 import { ProtectedRoute } from "../protectedRoute/ProtectedRoute";
 import { useAuth } from "../contexts/contextExport";
 import Mockman from "mockman-js";
@@ -23,6 +31,30 @@ const MyRoutes = () => {
         element={
           <ProtectedRoute>
             <NotesPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/trash"
+        element={
+          <ProtectedRoute>
+            <TrashPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/archive"
+        element={
+          <ProtectedRoute>
+            <ArchivePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/labels"
+        element={
+          <ProtectedRoute>
+            <LabelsPage />
           </ProtectedRoute>
         }
       />

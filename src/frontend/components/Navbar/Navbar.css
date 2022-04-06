@@ -1,9 +1,12 @@
 .nav-bar {
+  position: sticky;
+  top: 0;
   background-color: var(--color-nav-bg);
   padding: 0.8rem 4rem;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  z-index: 8;
 }
 .brand-div {
   display: flex;

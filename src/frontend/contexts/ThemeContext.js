@@ -15,8 +15,10 @@ const ThemeProvider = ({ children }) => {
       document.body.classList.add("dark-mode");
     }
   }, [theme]);
+  const [isSidebar, setIsSidebar] = useState(false);
+
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, isSidebar, setIsSidebar }}>
       {children}
     </ThemeContext.Provider>
   );

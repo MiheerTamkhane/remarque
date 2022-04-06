@@ -1,6 +1,4 @@
 import { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 import "./Modal.css";
 import { Label, Pallete, ReactQuillEditor } from "../componentsExport";
 import { useAuth, useNote } from "../../contexts/contextExport";
