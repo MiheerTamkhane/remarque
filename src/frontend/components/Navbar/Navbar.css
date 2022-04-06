@@ -49,8 +49,28 @@
   cursor: pointer;
   color: var(--color-gray-600);
 }
+
 .dialog.ct-btn.ct-green-bd.active {
   color: var(--color-primary);
   font-weight: bold;
   background-color: var(--color-gray-100);
+}
+.user-account {
+  display: none;
+}
+
+@media only screen and (max-width: 750px) {
+  .nav-bar {
+    padding: 0.8rem;
+  }
+  .brand-div {
+    margin-left: 3rem;
+  }
+
+  .user-logged > h2 {
+    display: none;
+  }
+  .ct-btn.ct-green-bd {
+    padding: 8px 10px;
+  }
 }

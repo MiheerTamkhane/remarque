@@ -99,7 +99,7 @@ const Modal = ({
               setIsModal(false);
             }}
           >
-            Update Note
+            Update
           </button>
           <button
             className="ct-btn add-note"
@@ -107,7 +107,7 @@ const Modal = ({
               setIsModal(false);
             }}
           >
-            Cancel
+            Exit
           </button>
         </div>
       </section>

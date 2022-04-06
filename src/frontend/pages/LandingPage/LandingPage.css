@@ -1,5 +1,6 @@
 .landing-container {
-  height: 80vh;
+  min-height: 80vh;
+  max-height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -61,4 +62,10 @@
   background-color: var(--color-success-muted);
   text-decoration: none;
   font-family: "Baloo 2", cursive;
+}
+
+@media only screen and (max-width: 750px) {
+  .landing-img {
+    display: none;
+  }
 }
