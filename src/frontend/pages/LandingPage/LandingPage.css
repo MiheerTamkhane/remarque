@@ -44,7 +44,7 @@
   text-decoration: none;
   color: var(--color-gray-600);
   cursor: pointer;
-  transition: all 250ms ease;
+  transition: 250ms ease;
 }
 .landing-link:hover {
   color: var(--color-primary);
