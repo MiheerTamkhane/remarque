@@ -30,9 +30,7 @@
   margin-top: 0.8rem;
   justify-content: start;
 }
-.note .toolbar-tools > * {
-  font-size: 1.4rem;
-}
+
 .delete-note,
 .edit-note {
   font-size: 1.8rem;

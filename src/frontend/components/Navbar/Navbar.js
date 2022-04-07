@@ -25,9 +25,10 @@ const Navbar = () => {
       <div className="ct-right-nav">
         <ThemeToggler />
         <div className="ct-nav-user">
+          <span className="material-icons user-account">person</span>
           {auth.status ? (
             <div className="user-logged">
-              <h3>Hi, {auth.user}</h3>
+              <h2>Hi, {auth.user}</h2>
               <NavLink
                 to="/"
                 className="dialog ct-btn ct-green-bd active"

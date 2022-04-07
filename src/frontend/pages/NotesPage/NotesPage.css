@@ -18,3 +18,12 @@
   padding: 0.5rem;
   margin-bottom: 1rem;
 }
+
+@media only screen and (max-width: 750px) {
+  .notes-page {
+    margin: 0.5rem;
+  }
+  .notes-render-div {
+    margin-top: 3rem;
+  }
+}

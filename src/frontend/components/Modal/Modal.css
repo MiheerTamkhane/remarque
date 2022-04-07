@@ -22,11 +22,16 @@
   top: 62px;
   width: 80%;
   font-size: 1.5rem;
-  transition: 0.3s ease;
   padding: 0.4rem;
   margin: 5px 7px;
   background-color: transparent;
   outline: none;
   border: none;
   color: var(--gray-500);
+}
+
+@media only screen and (max-width: 750px) {
+  .modal-title {
+    top: 0;
+  }
 }
