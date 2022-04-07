@@ -48,3 +48,8 @@ This project contains the Mock Backend created for Note-App. It contains differe
 - **[CSS3]()**
 - **[HTML5]()**
 - **[React.js](https://mockbee.netlify.app/)**
+
+## 🚀 About Me
+
+**Hi, I'm Miheer**
+⚡ [GitHub](https://github.com/MiheerTamkhane)
