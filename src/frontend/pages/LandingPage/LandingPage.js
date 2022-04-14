@@ -13,8 +13,10 @@ const LandingPage = () => {
         <div className="landing-brand-name">REMARQUE</div>
         <span>Quick notes anytime, anywhere.</span>
         <span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-          dolorum dignissimos tempore..
+          Remarque(Note) is the best place to Note down quick thoughts or to
+          save longer notes filled with images, web links, scanned documents,
+          handwritten notes, or sketches. And with iBee, it's easy to keep all
+          your devices in sync, so you’ll always have your notes with you.
         </span>
         {auth.status ? (
           <Link
