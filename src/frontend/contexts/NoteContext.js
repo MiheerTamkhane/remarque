@@ -54,9 +54,22 @@ const NoteProvider = ({ children }) => {
     const response = await deleteFromArchiveService(id, authToken);
     setArchiveList(response);
   };
+
+  const [q, setQ] = useState("");
+  const [searchParams] = useState(["noteTitle", "noteDesc"]);
+
+  function search(items) {
+    return items.filter((item) => {
+      return searchParams.some((newItem) => {
+        return item[newItem].toLowerCase().indexOf(q.toLowerCase()) > -1;
+      });
+    });
+  }
   return (
     <NoteContext.Provider
       value={{
+        q,
+        setQ,
         noteState,
         dispatchNote,
         noteList,
@@ -67,6 +80,7 @@ const NoteProvider = ({ children }) => {
         archiveList,
         deleteFromArchiveHandler,
         restoreFromArchiveHandler,
+        search,
       }}
     >
       {children}

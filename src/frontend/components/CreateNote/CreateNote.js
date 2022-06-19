@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Label, Pallete, ReactQuillEditor } from "../componentsExport";
 import { useNote, useAuth } from "../../contexts/contextExport";
 import { addNoteService } from "../../services/servicesExport";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import "./CreateNote.css";
 const CreateNote = () => {
   const { auth } = useAuth();
@@ -20,6 +21,7 @@ const CreateNote = () => {
     dispatchNote({ type: "CLEAR_FIELDS" });
     setTempNote("");
   };
+
   return (
     <div className="create-note-container">
       <section className={`note-section ${noteColor}`}>
@@ -67,15 +69,15 @@ const CreateNote = () => {
               push_pin
             </span>
             <Label
+              setIsLabel={setIsLabel}
               dispatchNote={dispatchNote}
               isLabel={isLabel}
-              setIsLabel={setIsLabel}
               setIsPallete={setIsPallete}
             />
             <Pallete
+              setIsPallete={setIsPallete}
               dispatchNote={dispatchNote}
               isPallete={isPallete}
-              setIsPallete={setIsPallete}
               setIsLabel={setIsLabel}
             />
           </div>

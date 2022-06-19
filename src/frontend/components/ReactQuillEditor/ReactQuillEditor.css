@@ -2,6 +2,34 @@
 .react-quill {
   max-width: 450px;
 }
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
+}
+.ql-editor {
+  box-sizing: border-box;
+  line-height: 1.42;
+  height: fit-content;
+  max-height: 50vh;
+  overflow: scroll;
+  outline: none;
+  padding: 12px 15px;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.ql-editor::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
 .ql-editor.ql-blank::before {
   color: var(--gray-500);
   font-style: normal;

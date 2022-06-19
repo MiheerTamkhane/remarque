@@ -1,13 +1,15 @@
 import "./Pallete.css";
-
+import { useRef } from "react";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 const Pallete = ({
   isPallete,
   setIsPallete,
-  setIsLabel,
   dispatchNote,
   setUpdatedNote,
   isModal,
 }) => {
+  const palleteRef = useRef();
+  useOnClickOutside(palleteRef, () => setIsPallete(false));
   const updatePalleteHandler = (color) => {
     if (isModal) {
       setUpdatedNote((updatedNote) => ({ ...updatedNote, noteColor: color }));
@@ -16,12 +18,11 @@ const Pallete = ({
     }
   };
   return (
-    <div className="color-pallete-container">
+    <div className="color-pallete-container" ref={palleteRef}>
       <span
         className="material-icons-outlined pallete-icon"
         onClick={() => {
-          setIsPallete(!isPallete);
-          setIsLabel(false);
+          setIsPallete(true);
         }}
       >
         color_lens

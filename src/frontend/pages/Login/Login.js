@@ -71,8 +71,8 @@ const Login = () => {
           onClick={(e) => {
             e.preventDefault();
             handleLogin({
-              email: "adarshbalika@gmail.com",
-              password: "adarshBalika123",
+              email: "miheer@gmail.com",
+              password: "miheer123",
             });
           }}
         >

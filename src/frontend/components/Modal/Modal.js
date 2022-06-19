@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./Modal.css";
 import { Label, Pallete, ReactQuillEditor } from "../componentsExport";
 import { useAuth, useNote } from "../../contexts/contextExport";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 const Modal = ({
   currentNote,
   setIsModal,
@@ -16,9 +17,22 @@ const Modal = ({
   const [isLabel, setIsLabel] = useState(false);
   const [isPallete, setIsPallete] = useState(false);
   const { _id } = currentNote;
+
+  const modalRef = useRef();
+  useOnClickOutside(modalRef, () => {
+    setIsModal(false);
+    updateNoteHandler(
+      _id,
+      { ...updatedNote, createdAt: new Date() },
+      authToken
+    );
+  });
   return (
     <div className="update-note-container">
-      <section className={`modal-section ${updatedNote.noteColor}`}>
+      <section
+        className={`modal-section ${updatedNote.noteColor}`}
+        ref={modalRef}
+      >
         <ReactQuillEditor
           value={updatedNote.noteDesc}
           setValue={setUpdatedNote}
