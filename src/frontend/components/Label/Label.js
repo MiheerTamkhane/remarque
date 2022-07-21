@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./Label.css";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 const Label = ({
   isLabel,
   setIsLabel,
-  setIsPallete,
   dispatchNote,
   setUpdatedNote,
   isModal,
 }) => {
+  const labelRef = useRef();
+  useOnClickOutside(labelRef, () => setIsLabel(false));
+
   const [tag, setTag] = useState("");
   const updateNoteTags = (tag) => {
     if (isModal) {
@@ -22,12 +25,11 @@ const Label = ({
   };
 
   return (
-    <div className="toolbar-label-container">
+    <div className="toolbar-label-container" ref={labelRef}>
       <span
         className="material-icons-outlined show-label"
         onClick={() => {
-          setIsLabel(!isLabel);
-          setIsPallete(false);
+          setIsLabel(true);
         }}
       >
         label

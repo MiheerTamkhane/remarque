@@ -1,10 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
-import { useAuth } from "../../contexts/contextExport";
+import { NavLink, useLocation } from "react-router-dom";
+import { useAuth, useNote } from "../../contexts/contextExport";
 import { ThemeToggler } from "../componentsExport";
 const Navbar = () => {
   const { auth, setAuth } = useAuth();
+  const { q, setQ } = useNote();
   const logoutHandler = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("authToken");
@@ -15,6 +16,8 @@ const Navbar = () => {
       authToken: null,
     }));
   };
+  const { pathname } = useLocation();
+
   return (
     <nav className="nav-bar">
       <NavLink to="/" className="ct-nav-logo brand-div">
@@ -22,8 +25,19 @@ const Navbar = () => {
         <h1 className="brand-name">Remarque</h1>
       </NavLink>
 
-      <div className="ct-right-nav">
-        <ThemeToggler />
+      <div className="ct-right-nav right-nav">
+        {pathname === "/notespage" && (
+          <div className="search-bar-container">
+            <input
+              type="search"
+              value={q}
+              className="ct-input search-bar"
+              placeholder="Seach notes..."
+              onChange={(e) => setQ(e.target.value)}
+            />
+          </div>
+        )}
+
         <div className="ct-nav-user">
           <span className="material-icons user-account">person</span>
           {auth.status ? (
@@ -61,6 +75,7 @@ const Navbar = () => {
               </NavLink>
             </div>
           )}
+          <ThemeToggler />
         </div>
       </div>
     </nav>
