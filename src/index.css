@@ -21,6 +21,7 @@ body.light-mode {
 }
 body.dark-mode {
   --color-body-bg: hsl(197, 14%, 10%);
+  --color-note-bg: hsl(200, 12%, 14%);
   --color-text: hsl(140, 23%, 95%);
   --editor-color: hsl(160, 100%, 40%);
 }
