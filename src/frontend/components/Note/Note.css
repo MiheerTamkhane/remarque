@@ -5,6 +5,9 @@
   border-radius: 7px;
   padding: 0.5rem;
 }
+.note-body {
+  padding: 0 0.5rem;
+}
 .note > h3 {
   letter-spacing: 0.1em;
   word-wrap: break-word;
@@ -26,11 +29,15 @@
   font-size: 0.8rem;
   justify-content: start;
 }
-.note .toolbar-tools {
+.note > .toolbar-tools {
+  width: 100%;
   margin-top: 0.8rem;
-  justify-content: start;
+  gap: 0;
+  justify-content: space-around;
 }
-
+.note-time {
+  font-size: small;
+}
 .delete-note,
 .edit-note {
   font-size: 1.8rem;

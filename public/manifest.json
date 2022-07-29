@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Remarque",
+  "name": "Remarque | Notes app",
+  "description": "Remarque(Note) is the best place to Note down quick thoughts or to save longer notes filled with images, web links, scanned documents, handwritten notes, or sketches.",
   "icons": [
     {
       "src": "favicon.ico",
