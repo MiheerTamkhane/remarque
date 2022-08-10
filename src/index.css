@@ -12,6 +12,8 @@
   --color-gray-600: hsl(226, 15%, 50%);
   --color-gray-900: hsl(197, 14%, 10%);
   --color-gray-100: hsl(220, 23%, 95%);
+  --color-moon: hsl(200, 12%, 14%);
+  --color-sun: #f5b027;
 }
 
 body.light-mode {

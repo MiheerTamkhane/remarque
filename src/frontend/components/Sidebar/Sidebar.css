@@ -53,6 +53,9 @@
   color: var(--gray-700);
 }
 @media only screen and (max-width: 780px) {
+  .sidebar-container {
+    top: 3.52rem;
+  }
   .sidebar-arrow {
     top: 8px;
     left: 8px;

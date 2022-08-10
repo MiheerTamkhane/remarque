@@ -8,15 +8,16 @@
   height: 40px;
   cursor: pointer;
   border-radius: 50%;
-  background-color: var(--color-body-bg);
-  color: var(--color-text);
+  background-color: var(--color-gray-100);
 }
 .dark-icon {
+  color: var(--color-moon);
   transition: cubic-bezier(0.7, 0.28, 0.1, 0.045) 0.35s;
   transform: rotate(0deg);
 }
 
 .light-icon {
+  color: var(--color-sun);
   transition: cubic-bezier(0.7, 0.28, 0.1, 0.045) 0.35s;
   transform: rotate(90deg);
 }
