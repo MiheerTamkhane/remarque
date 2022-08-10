@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Label, Pallete, ReactQuillEditor } from "../componentsExport";
 import { useNote, useAuth } from "../../contexts/contextExport";
 import { addNoteService } from "../../services/servicesExport";
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import "./CreateNote.css";
 const CreateNote = () => {
   const { auth } = useAuth();

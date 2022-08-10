@@ -6,3 +6,4 @@ export { deleteNoteService } from "./NotesServices/deleteNoteService";
 export { addNoteToArchiveService } from "./NotesServices/addNoteToArchiveService";
 export { deleteFromArchiveService } from "./NotesServices/deleteFromArchiveService";
 export { restoreFromArchiveService } from "./NotesServices/restoreFromArchiveService";
+export { getNotesService } from "./NotesServices/getNotesService";

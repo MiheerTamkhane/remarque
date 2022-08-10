@@ -1,4 +1,10 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useState,
+  useEffect,
+} from "react";
 import { noteReducer } from "../reducers/NoteReducer";
 import {
   updateNoteService,
@@ -6,7 +12,9 @@ import {
   addNoteToArchiveService,
   deleteFromArchiveService,
   restoreFromArchiveService,
+  getNotesService,
 } from "../services/servicesExport";
+import { useAuth } from "./contextExport";
 
 const NoteContext = createContext();
 
@@ -22,6 +30,17 @@ const NoteProvider = ({ children }) => {
   const [noteState, dispatchNote] = useReducer(noteReducer, initialNote);
   const [noteList, setNoteList] = useState([]);
   const [archiveList, setArchiveList] = useState([]);
+  const {
+    auth: { authToken },
+  } = useAuth();
+
+  useEffect(() => {
+    (async () => {
+      const response = await getNotesService(authToken);
+      setNoteList(response);
+      console.log(response);
+    })();
+  }, [authToken]);
 
   // Update note Handler function 🔼
   const updateNoteHandler = async (id, note, authToken) => {
