@@ -38,7 +38,6 @@ const NoteProvider = ({ children }) => {
     (async () => {
       const response = await getNotesService(authToken);
       setNoteList(response);
-      console.log(response);
     })();
   }, [authToken]);
 
