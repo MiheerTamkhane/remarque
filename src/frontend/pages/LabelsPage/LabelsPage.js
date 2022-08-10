@@ -76,7 +76,10 @@ const LabelsPage = () => {
 
             <MasonryLayout>
               {newList.map((note, i) => {
-                return note.tags.length > 0 && <Note key={i} note={note} />;
+                return (
+                  note.tags.length > 0 &&
+                  !note.noteInTrash && <Note key={i} note={note} />
+                );
               })}
             </MasonryLayout>
           </div>
